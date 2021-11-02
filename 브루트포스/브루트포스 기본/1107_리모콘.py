@@ -1,41 +1,55 @@
-#맨 처음 생각
-#주어진 숫자와 가장 작은 차이가 나게 숫자를 구한다
-#그 다음 차이값을 구한다음 누른 버튼 수 + 차이값으로 계산한다.
+n = int(input())
+b = int(input())
+broken = [False] * 10
+if b > 0 :
+    numbers = list(map(int, input().split()))
+else:
+    numbers =[]
 
-def possible(c):
-    if c == 0: # 나머지 계산이 안되는 경우 거르기
-        if broken[0]:
+for i in numbers:
+    broken[i]=True
+
+
+#그 채널로 이동이 가능한지 아닌지를 체크하는 함수!
+def checker(a):
+    if a == 0:
+        if broken[a]:
+            return 0 # 이동이 불가능하면 0
+        else:
+            return 1 # 이동이 가능하면 버튼 누르는 갯수 리턴
+
+    result = 0
+    cal = a
+    while cal > 0:
+        if broken[cal%10]:
             return 0
         else:
-            return 1
-    l = 0 #각 자리 수마다 다 일치하는 지 확인
-    while c > 0:
-        if broken[c%10]:
-            return 0
-        l += 1
-        c //= 10
-    return l
+            cal//=10
+            result += 1
+    return result
 
 
-n = int(input())
-m = int(input())
-broken = [False] * 10
-if m > 0:
-    a = list(map(int,input().split()))
-else:
-    a = []
-for x in a:
-    broken[x] = True
+# main
+ans = abs(n-100)
+for i in range(1000000):
+    press = checker(i)
+    if press > 0:
+        if ans > abs(n-i) + press:
+            ans = abs(n-i) + press
 
-ans = abs(n-100)# 기본 셋이 이해가 안됨
-for i in range(0, 1000000+1):
-    c = i
-    l = possible(c)
-    if l > 0:
-        press = abs(c-n)
-        if ans > l + press: #이동한 숫자와 +/- 버튼을 추가로 구해서 더해준 경우
-            ans = l + press
 print(ans)
 
 
+#이동할 채널 c를 구한다
+#c에 포함되어 있는 숫자 중에 고장난 버튼이 있는지 확인한다
+#고장난 버튼이 없으면 절대값을 구해서 +/-를 계산한다.
 
+
+# 이해가 어려웠던 부분
+# 딱 맞는 최소한의 값을 구하는게 아니라 백만 가지 숫자를 각각 다 최소값을 구해서
+# 그 중에 제일 잘 맞는 값을 구하는 것이다!!!!!~~~!!
+
+
+#직전 위에도 잘못 이해했음...
+#그냥 갈 수 있는 채널을 다 찾아서 그중에서 제일 조금 움직이는 걸로 가는거임...
+#바보야 변수이름좀 잘 확인하자..제발...

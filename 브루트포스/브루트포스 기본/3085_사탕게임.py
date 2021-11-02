@@ -1,3 +1,8 @@
+#항상 배열을 돌때, 어디서 부터 어디까지 도는지 제대로 확인하자
+#i와 j를 항상 제대로 확인해서 알맞는 타이밍에 업데이트 되는지 확인해야 한다.
+#놓치는 부분이 없는지 확인하는게 제일 중요!
+
+
 n = int(input())
 a = [list(input()) for _ in range(n)]
 
@@ -38,11 +43,10 @@ def check(a):
 
 
 
-
+#main
 ans = 0
 for i in range(n):
     for j in range(n):
-
         if j+1 < n:
             a[i][j], a[i][j + 1] = a[i][j + 1], a[i][j]
             value = check(a)
