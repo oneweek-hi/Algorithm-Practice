@@ -5,8 +5,10 @@ n,m = map(int,input().split())
 
 #한줄받기
 a=list(map(int, input().split()))
+
 #2차원 배열 입력 받기
 a=[list(map(int,input().split())) for _ in range(n)]
+a=[list(map(int,list(input()))) for _ in range(n)] #이방식으로 받으면 값에 0이 있어도 받아진다.
 
 empty2arr=[[0]*n for _ in range(n)]
 emptyArr= [0]*n
