@@ -26,7 +26,6 @@ for i in range(n):
     bfs(a1, a2)
     print(check[b1][b2])
 
-
 #최단 거리 문제를 풀때는 그냥 check에 있는게 답이다!
 #그리고 처음 배열을 -1로 하는 것도 좋은 방법 인것 같다!
 
