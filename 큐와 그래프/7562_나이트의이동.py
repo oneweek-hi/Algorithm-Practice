@@ -2,39 +2,34 @@ from collections import deque
 dx=[-2,-1,1,2,2,1,-1,-2]
 dy=[1,2,2,1,-1,-2,-2,-1]
 
-
-
 n = int(input())
 for i in range(n):
     s = int(input())
     a1, a2 =map(int,input().split())
     b1, b2 = map(int, input().split())
-    print("s: ", s, "a1, a2: ",a1,a2,"b1,b2: ", b1,b2)
-    check = [[0] * n for _ in range(n)]
+    check = [[-1] * s for _ in range(s)]
 
-    count =0
     def bfs(x,y):
         queue = deque()
         queue.append((x,y))
-        check[x][y] = 1
+        check[x][y] = 0
         while queue:
             x,y = queue.popleft()
-            global count
-            count += 1
             for i in range(8):
                 calx = x +dx[i]
                 caly = y +dy[i]
-                if calx == b1 and caly == b2:
-                    count += 1
-                    print("here")
-                    break
-                if 0<= calx <n and 0 <= caly < n:
-                    if check[calx][caly] == 0:
+                if 0 <= calx < s and 0 <= caly < s:
+                    if check[calx][caly] == -1:
                         queue.append((calx, caly))
                         check[calx][caly] = check[x][y] + 1
 
     bfs(a1, a2)
-    print(count)
+    print(check[b1][b2])
+
+
+#최단 거리 문제를 풀때는 그냥 check에 있는게 답이다!
+#그리고 처음 배열을 -1로 하는 것도 좋은 방법 인것 같다!
+
 
 # 1
 # 8
