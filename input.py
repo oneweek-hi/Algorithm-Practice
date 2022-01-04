@@ -10,6 +10,7 @@ a=list(map(int, input().split()))
 a=[list(map(int,input().split())) for _ in range(n)]
 a=[list(map(int,list(input()))) for _ in range(n)] #이방식으로 받으면 값에 0이 있어도 받아진다.
 
+#빈 이차원 어레이 할당
 empty2arr=[[0]*n for _ in range(n)]
 emptyArr= [0]*n
 
@@ -26,3 +27,10 @@ print()
 
 
 # extend와 append차이를 알아놔야 겠다
+
+from collections import defaultdict
+
+info= defaultdict(list)
+for s1, s2 in friends:
+    info[s1].append(s2)
+    info[s2].append(s1)
