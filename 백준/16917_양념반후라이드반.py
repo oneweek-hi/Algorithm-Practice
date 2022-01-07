@@ -1,23 +1,15 @@
 a, b, c, x, y = map(int,input().split())
+#기본값
 defalut = a*x + b*y
-min=0
-max=0
-if x>y:
-    max =x
-    min =y
-else:
-    max =y
-    min =x
+min=min(x, y)
+max=max(x, y)
 
-#기준
-for i in range(1, min+1):
-    cal = 0
-    cal += c * i * 2
-    cal += a * (x-i)
-    cal += b * (y-i)
-    if defalut > cal:
-        defalut = cal
+#반반을 섞었을때 최소값
+cal =  c * min * 2 + a * (x-min) +b * (y-min)
+if defalut > cal:
+    defalut = cal
 
+#반반으로만 했을 때
 if defalut <(c*max*2):
     print(defalut)
 else:

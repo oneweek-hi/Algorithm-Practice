@@ -2,12 +2,14 @@ MAX = 1000000;
 check = [0]*(MAX+1)
 check[0] = check[1] = True
 
+##에라토스테네스의 체 만들기
 for i in range(2, MAX+1):
     if not check[i]:
         j = 2*i
         while j<=MAX:
             check[j] = True
-            j +=i
+            j +=i  #자기를 계속더하면 자기로 나눠짐
+
 a,b = map(int, input().split())
 for i in range(a, b+1):
     if not check[i]:

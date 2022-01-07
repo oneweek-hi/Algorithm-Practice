@@ -2,7 +2,7 @@ def is_prime(x):
     if x<2:
         return False
     i=2
-    while i*i<=x:
+    while i*i<=x: #x를 루트하는 것보다 i를 제곱해줌
        if (x%i==0):
            return False
        i +=1

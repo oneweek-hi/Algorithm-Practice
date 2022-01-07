@@ -12,6 +12,7 @@ def gcd(x,y):
 x = gcd(a,b)
 print(x)
 print(a*b//x) #함수를 따로 만들지 않고 이렇게 바로 구할 수 있다.
+
 # print(int(lmc(x,a,b)))
 
 #유클리드 호제법

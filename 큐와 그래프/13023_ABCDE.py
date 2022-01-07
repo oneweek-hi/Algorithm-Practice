@@ -28,8 +28,35 @@ for i in range(m):
             sys.exit(0)
 print(0)
 
-#어렵다..
-#생각을 해보면 DFS로 depth구하는 방법밖에 안떠오른다. 근데 이것도 코드로 구현하자니..아찔..!
+
+#DFS로 푼문제
+import sys
+
+n, m = map(int, input().split())
+arr = [[] for i in range(n)]
+visited = [False] * n
+
+# 그래프를 인접 리스트 방식으로 표현하였습니다.
+for _ in range(m):
+    a, b = map(int, sys.stdin.readline().rstrip().split())
+    arr[a].append(b)
+    arr[b].append(a)
 
 
-# https://security-nanglam.tistory.com/531
+def dfs(idx, number):
+    if number == 4:
+        print(1)
+        exit()
+    for i in arr[idx]:
+        if not visited[i]:
+            visited[i] = True
+            dfs(i, number + 1)
+            visited[i] = False
+
+# 노드를 순서대로 방문하며 dfs를 수행합니다.
+for i in range(n):
+    visited[i] = True
+    dfs(i, 0)
+    visited[i] = False
+
+print(0)
