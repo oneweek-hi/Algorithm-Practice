@@ -3,7 +3,7 @@ for _ in range(t):
     a,b = map(int,input().split())
     aa=a%10
 
-    if aa == 0: 
+    if aa == 0:
         print(10)
     elif aa in [1,5,6]:
         print(aa)
