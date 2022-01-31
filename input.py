@@ -26,21 +26,14 @@ print(' '.join(map(str,a)))
 #그냥 줄바꿈 할때
 print()
 
+#거꾸로 방문하기
+def printtool(n, m):
+    if n != m:
+        printtool(n, place[m])
+    print(m, end=" ")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+printtool(n, m)
 
 
 # extend와 append차이를 알아놔야 겠다
