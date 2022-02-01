@@ -26,12 +26,15 @@ print(' '.join(map(str,a)))
 #그냥 줄바꿈 할때
 print()
 
+#프린트 하기
+for i in range(n):
+    print(' '.join(map(str, arr[i])))
+
 #거꾸로 방문하기
 def printtool(n, m):
     if n != m:
         printtool(n, place[m])
     print(m, end=" ")
-
 
 printtool(n, m)
 
@@ -44,3 +47,6 @@ info= defaultdict(list)
 for s1, s2 in friends:
     info[s1].append(s2)
     info[s2].append(s1)
+
+
+
