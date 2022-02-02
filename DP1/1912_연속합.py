@@ -9,4 +9,5 @@ for i in range(1,n):
     else:
         d[i] = d[i-1]+arr[i]
 
+print(d)
 print(max(d))
