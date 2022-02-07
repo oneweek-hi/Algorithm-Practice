@@ -55,15 +55,23 @@ int main(){
   if (m.find("b") != m.end())
     cout << m.find("b")->second << endl; // 키 값 유무 확인
 
+  for (auto it=m.begin(); it != m.end(); it ++){
+      cout << it->first<< " "<< it->second<< endl;
+    }
+
+  for ( auto it:m){
+      cout << it.first<< " "<< it.second<< endl;
+    }
+
   // cmath 활용
   int a = 2;
   int b = 2.5;
   min(a, b);
   max(a, b);
-  ceil(b);
-  floor(b);
-  abs(a);
-  fabs(b);
+  ceil(3.14); //올림
+  floor(1.89); // 내림
+  abs(-123); //절대값
+  fabs(-123); //
   pow(a, b);  // a^b 값을 리턴
   sqrt(a);  // 루트 a 리턴
 
